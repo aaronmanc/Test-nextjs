@@ -1,0 +1,62 @@
+INSTALL:
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+
+INTEGRATE:
+pnpm add pg dotenv
+.env: DATABASE_URL=postgresql://postgres:yourpassword@localhost:5432/home_tasks
+PORT=3000
+
+to start post engine:
+sudo service postgresql start
+
+
+
+sudo -i -u postgres
+psql
+\c home_tasks
+\i /var/lib/postgresql/home_tasks.sql
+\i '/home/mesmer/Documents/CODING/NodeJs Coding/ViveHogar/db/home_tasks.sql'
+
+
+DROP DATABASE IF EXISTS home_tasks;
+if someone is using it:
+SELECT pg_terminate_backend(pid)
+FROM pg_stat_activity
+
+WHERE datname = 'home_tasks';
+CREATE DATABASE home_tasks;
+
+
+CREATE DATABASE home_tasks;
+
+sudo cp "/home/mesmer/Documents/CODING/NodeJs Coding/ViveHogar/db/home_tasks.sql" /var/lib/postgresql/
+sudo chown postgres:postgres /var/lib/postgresql/home_tasks.sql
+
+copy DB file to postgres user
+
+in db:
+\dt (lists all tables)
+\d [table] (lists attributes)
+SELECT * FROM [table] (shows rows)
+
+exit postgres: \q
+exit postgres terminal: exit
+
+
+
+
+sql files are just scripts to create tables for sql
+DROP TABLE → destroys table and all data
+CREATE TABLE IF NOT EXISTS → keeps old data
+TRUNCATE TABLE → clears rows but keeps structure
+
+
+
+INSERT INTO default_tasks (title, description, category)
+VALUES 
+('Wash dishes', 'Clean all used plates and utensils', 'Cleaning'),
+('Take out trash', 'Empty the main trash bin and replace bag', 'Cleaning'),
+('Do laundry', 'Wash and fold clothes', 'Household'),
+('Vacuum living room', 'Vacuum the floor and carpets', 'Cleaning'),
+('Pay bills', 'Pay electricity, water, and internet bills', 'Finance');

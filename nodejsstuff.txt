@@ -1,0 +1,24 @@
+async:
+-it can use keywords like "await"
+-async functions run operations that take time like network requests without freezing the whole app
+
+
+Components:
+-SERVER
+can be async
+can use await cookies
+cant use react
+cant respond dynamically to events
+
+-CLIENT
+can use useState, useEffect
+responds to clicks
+to respond to cookies, pass as props from server component
+
+
+Arrow Functions =>
+
+React:
+const [currentHomeId, setCurrentHomeId] = useState(currentHomeCookie?.value || homes[0].id);
+currentHomeId: state variable, reactive
+setCurrentHomeId: function used to change the state
